@@ -1,1 +1,1 @@
-protoc -I src/ --go_out=src/ protoBuff/simple.proto
+protoc -I src/ --go_out=bufferedFiles/ src/simple.proto
