@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 // remember to use the full path from the root of the project
-import "4-exercises-solutions/4-imports-with-packages/city.proto";
+import "city.proto";
 
 package street;
 
