@@ -9,16 +9,27 @@ import (
 )
 
 func main() {
-	sm := simplepb.SimpleMessage{
+	doAll()
+}
+
+func doAll() {
+	sm := &simplepb.SimpleMessage{
 		Name:     "Pushpan",
 		Id:       777,
 		IsSimple: true,
 	}
-	doAll(&sm)
-}
-
-func doAll(sm *simplepb.SimpleMessage) {
-
+	fmt.Println(sm)
+	err := writeIntoFile("simple.bin",sm)
+	if err != nil {
+		return
+	}
+	newSm := &simplepb.SimpleMessage{}
+	err = readFromFile("simple.bin",newSm)
+	if err != nil {
+		return
+	}
+	fmt.Println("--------")
+	fmt.Println(newSm)
 }
 
 func writeIntoFile(fileName string ,sm *simplepb.SimpleMessage ) error{
@@ -33,7 +44,7 @@ func writeIntoFile(fileName string ,sm *simplepb.SimpleMessage ) error{
 		log.Fatalln("Error in writing data into File",err)
 		return err
 	}
-	fmt.Println("Data is added")
+	fmt.Println("Data is added to file")
 	return nil
 
 }
@@ -47,6 +58,10 @@ func readFromFile(fileName string, sm *simplepb.SimpleMessage) error{
 	}
 	err = proto.Unmarshal(payload,sm)
 	if err != nil {
-		log.Fatalln("Error in ")
+		log.Fatalln("Error in Converting data",err)
+		return err
 	}
+	fmt.Println("Data is Added from File")
+	return nil
+
 }
