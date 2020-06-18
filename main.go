@@ -13,6 +13,7 @@ func main() {
 }
 
 func doAll() {
+
 	sm := &simplepb.SimpleMessage{
 		Name:     "Pushpan",
 		Id:       777,
@@ -28,8 +29,8 @@ func doAll() {
 	if err != nil {
 		return
 	}
-	fmt.Println("--------")
-	fmt.Println(newSm)
+	fmt.Println("--------",newSm)
+	
 }
 
 func writeIntoFile(fileName string ,sm *simplepb.SimpleMessage ) error{
