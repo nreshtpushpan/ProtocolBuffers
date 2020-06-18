@@ -30,7 +30,7 @@ func doAll() {
 		return
 	}
 	fmt.Println("--------",newSm)
-	
+
 }
 
 func writeIntoFile(fileName string ,sm *simplepb.SimpleMessage ) error{
