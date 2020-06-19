@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package example.complex;
+option go_package = "complexpb";
 
 message ComplexMessage {
   DummyMessage one_dummy = 2;
